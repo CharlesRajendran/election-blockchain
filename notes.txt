@@ -1,0 +1,28 @@
+note: when you run truffle command with cmd use 
+    truffle.cmd <command>
+        reason is, this folder has a truffle.js file, if you run just truffle then it will throw an error
+
+
+Once you compile the sol files, you will get a json for the contratct (binary definition i guess - ABI definition)
+
+// deploy the contract 
+    truffle.cmd migrate --reset // this will reset the contract 
+
+// ganache-cli - to get a private blockchain
+
+// to test the contract without a front end use truffle.cmd console - this is like geth client 
+    1. Store the instance of a contract to a variable
+        <ContractName>.deployed().then((contract) => { app = contract });
+
+    2. Now we can experiment with different option with this app object 
+        app.functionName()
+            ex - app.candidateCount() ---> this will return a bigint since it is an integet
+                BigNumber { s: 1, e: 0, c: [ 3 ] }
+
+                to convert a big number to normal number use toNumber()
+
+        // to get a array element
+            ex - app.listOfCandidate(index) from 1 to ....
+
+
+
